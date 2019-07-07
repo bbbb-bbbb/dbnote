@@ -47,4 +47,47 @@
 ######  - 3개 이상의 테이블을 조인할 때 : n개의 테이블을 조인한다면 n-1개의 조건이 있어야함
 ######  - cross join : 왼쪽 테이블의 값을 오른쪽테이블에 다 곱하는 것. 거의 안 씀. 
 ######  - natural join : equi join에서 중복된 결과가 나오지 않도록 두번째 속성을 제거
-######  - 
+######  - outer join : 두 개 이상의 테이블을 조인하는데, 한 쪽에서는 데이터가 있고 한 쪽에서는 데이터가 없을 때 쓰는 기법
+######  -- letf join, right join, full outer join
+## - 서브쿼리 ★ ★★이해 어려움
+######  - 두 번 이상의 질의가 필요할 때, 하나의 질의 구문으로 해결한다.
+######  - 주의사항 : 반드시 괄호에 감싸서 수행, 비교 연산자의 우측에 위치, 메인쿼리보다 먼저 수행
+######  - 서브쿼리의 유형
+######  -- 1. 단일행/다중행 서브쿼리
+######  --- (1) 단일행  : 서브쿼리 결과값이 하나
+######  --- (2) 다중행  : 서브쿼리 결과값이 둘 이상, in 연산자 사용
+######  -- 2. select, from, where
+## - Table
+######  - 제작 기본 구문 : 
+''''html
+create tablespace 데이터 스페이스 이름
+datefile '데이터 파일 경로'
+size 초기사이즈 
+autoextend on next 자동증가사이즈
+maxsize 최대사이즈;
+''''
+######  - 삭제 : drop tablespace 이름
+######  - 사용자계정 만들기 : create user 아이디 identified by 비밀번호
+default tablespace 테이블스페이스이름
+######  - 권한 부여하기 : grant 권한리스트 to 아이디 
+######  -- 권한 리스트 : connect (로그인 권한), resource(자원을 사용할 수 있는 권한),  dba(db 관리자 권한)
+######  - 테이블 생성하기
+''''html
+create table schema_name.table_name
+(colunm_1 date_type colunm_constraint,
+colunm_2 data_type colunm_constraint,.....)
+table_constraint);
+ex : 
+create table book(
+bookid          number not null(null값 허용X),
+bookname        varchar2(50:글자수) not null,
+publisher       varchar2(10:글자수) not null,
+price           number
+primary key(bookid)(프라이머리 키는 어떤걸로 쓸지 괄호안에 적어주면 됨));
+''''
+###### - insert 삽입 구문
+###### -- insert into tablename values (....값 리스트, 값, 값, 값....);
+###### - update 수정 구문
+###### -- update 테이블 set 컬럼명= 20000 where 조건
+###### - delete 삭제 구문
+###### -- delete from 테이블 where 조건
