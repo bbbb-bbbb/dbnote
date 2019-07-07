@@ -72,7 +72,7 @@ default tablespace 테이블스페이스이름
 ######  - 권한 부여하기 : grant 권한리스트 to 아이디 
 ######  -- 권한 리스트 : connect (로그인 권한), resource(자원을 사용할 수 있는 권한),  dba(db 관리자 권한)
 ######  - 테이블 생성하기
-''''html
+````html
 create table schema_name.table_name
 (colunm_1 date_type colunm_constraint,
 colunm_2 data_type colunm_constraint,.....)
@@ -84,10 +84,32 @@ bookname        varchar2(50:글자수) not null,
 publisher       varchar2(10:글자수) not null,
 price           number
 primary key(bookid)(프라이머리 키는 어떤걸로 쓸지 괄호안에 적어주면 됨));
-''''
+````
 ###### - insert 삽입 구문
 ###### -- insert into tablename values (....값 리스트, 값, 값, 값....);
 ###### - update 수정 구문
 ###### -- update 테이블 set 컬럼명= 20000 where 조건
 ###### - delete 삭제 구문
 ###### -- delete from 테이블 where 조건
+###### - 주요키(primary key) : 
+###### -- (1) primary 키 지정할 때 컬럼명 옆에 지정하거나(단, primary key값이 하나일때) primary key를 따로 밑줄에다가 적어도 된다.
+###### -- (2) primary 키를 지정하면 중복된 값 허용 X (primary = unique + not null)
+###### -- (2-1) 중복된 값을 허용하려면 unique를 사용. create 구문에서 컬럼명 옆에 constrain 으로 기입.
+###### - 외래키(foreign key) : primary 키 밑에 foreign key 외래키 속성명 reference 테이블이름(해당테이블의 속성이름)
+###### - commit , rollback 구문 
+###### -- set auto on 상태에선 롤백이 제대로 역할을 못하니 set auto off를 실행시켜야함
+###### -- commit : 여기까지는 정상적으로 저장, 처리 하겠다. 변경된 내용을 영구저장.
+###### -- rollback : 이전으로 되돌리는 것. 이전 commit 전에만 되돌려짐.
+
+## - Github 
+###### - 공동작업을 하며 관리 할 수 있는 도구. 인터넷 상의 나의 작업을 올려서
+
+언제 어디서나 접근하고 다른사람들과 자료를 공유할 수 있다.
+###### - www.github.com와 desktop github를 이용해 작업
+
+## - 스키마 수정
+###### - 테이블 이름 변ㄱ여 : rename 원래테이블이름 to 바꾸려는테이블이름
+###### - 테이블 컬럼 추가 : alter table 테이블이름 add(새로운컬럼이름, 컬럼타입, 제약조건 등,,)
+###### - 컬럼 수정 : alter table 테이블 이름 modigy(컬럼명 수정내용)
+###### - 컬럼 삭제 : alter table 테이블 이름 drop column 컬럼명
+###### - 기존 컬럼 이름 수정 : alter table 테이블 이름 rename column 원래컬럼이름 to 새로운컬럼이름 
