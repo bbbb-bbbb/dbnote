@@ -18,7 +18,7 @@
 ######  -- 기타 연산자 : 
 ######  --- (1)between a and b(a와 b의 사이값), 
 ######  ---             (2)in(정확히 일치, in 쓰고 괄호안에 조건 값 입력) 
-######  ---             (3)like(문자의 패턴 비슷, (%)와 (_)를 이용해 검색)
+######  ---             (3)like(문자의 패턴 비슷, 퍼센트와 언더바를 이용해 검색)
 ######  ---             (4)is null(값이 null)
 ######  -- 논리연산자 : and, or, not  
 ######  -- order by : 순서대로 정렬 , 기본이 오름차순, desc은 내림차순
@@ -37,7 +37,7 @@
 ######  - 그룹함수의 유형 : avg, sum, max, min, count ... 사용법은 그룹함수(컬럼명)
 ######  - 그룹함수는 null이 있으면 연산 X, 그래서 nvl 함수 이용
 ## - Group by ★ ★★이해 어려움
-######  - ~~별(부서별, 직업별) 이런 말 있으면 group by ,
+######  - 별(부서별, 직업별) 이런 말 있으면 group by ,
 ######  - group by에 대한 조건을 where 절로 걸으면 안됨.
 ## - having ★ ★★이해 어려움
 ######  - group by에 대한 조건을 거는 것. 그룹함수와 함께 사용함.
@@ -59,20 +59,20 @@
 ######  -- 2. select, from, where
 ## - Table
 ######  - 제작 기본 구문 : 
-''''html
+```` html
 create tablespace 데이터 스페이스 이름
 datefile '데이터 파일 경로'
 size 초기사이즈 
 autoextend on next 자동증가사이즈
 maxsize 최대사이즈;
-''''
+````
 ######  - 삭제 : drop tablespace 이름
 ######  - 사용자계정 만들기 : create user 아이디 identified by 비밀번호
 default tablespace 테이블스페이스이름
 ######  - 권한 부여하기 : grant 권한리스트 to 아이디 
 ######  -- 권한 리스트 : connect (로그인 권한), resource(자원을 사용할 수 있는 권한),  dba(db 관리자 권한)
 ######  - 테이블 생성하기
-''''html
+```` html
 create table schema_name.table_name
 (colunm_1 date_type colunm_constraint,
 colunm_2 data_type colunm_constraint,.....)
@@ -84,7 +84,7 @@ bookname        varchar2(50:글자수) not null,
 publisher       varchar2(10:글자수) not null,
 price           number
 primary key(bookid)(프라이머리 키는 어떤걸로 쓸지 괄호안에 적어주면 됨));
-''''
+````
 ###### - insert 삽입 구문
 ###### -- insert into tablename values (....값 리스트, 값, 값, 값....);
 ###### - update 수정 구문
